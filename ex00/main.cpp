@@ -1,5 +1,4 @@
 
-
 /* Fixed-point numbers 
 * In fixed point representation, the number is split
 * into an integer part and a fractional part.
@@ -10,7 +9,7 @@
 
 #include "Fixed.hpp"
 
-int main( void )
+int main(void)
 {
     Fixed a;
     Fixed b( a );

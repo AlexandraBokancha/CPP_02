@@ -5,18 +5,20 @@
 class	Fixed
 {
 	private:
-        static const int    _fractionalBits = 8;
-        int                 _fixedNum;
+
+                static const int    _fractionalBits = 8;
+                int                 _fixedNum;
+
 	public :
 
         // constructor 
-        Fixed(void);
+        Fixed( void );
 
         // copy constructor
-        Fixed(const Fixed& f);
+        Fixed( const Fixed& f );
 
         // copy assignement operator overload
-        Fixed &operator=(const Fixed& f);
+        Fixed &operator=( const Fixed& f );
         
         // destructor
         ~Fixed( void );

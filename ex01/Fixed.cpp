@@ -1,24 +1,23 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed( void ) : _num(0){
+Fixed::Fixed(void) : _num(0){
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( const int intNum ){
+Fixed::Fixed(const int intNum){
     std::cout << "Int constructor called" << std::endl;
     this->_num = intNum << _fractionalBits;
 }
 
-Fixed::Fixed( const float floatNum ){
+Fixed::Fixed(const float floatNum){
     std::cout << "Float constructor called" << std::endl;
-    this->_num = floatNum * (1 << _fractionalBits);
+    this->_num = roundf(floatNum * (1 << _fractionalBits));
 }
 
 Fixed::Fixed(const Fixed& src){ 
     std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
-
 
 Fixed &Fixed::operator=(const Fixed& newFixed){
     std::cout << "Copy assignement operator called" << std::endl;
@@ -28,7 +27,6 @@ Fixed &Fixed::operator=(const Fixed& newFixed){
 }
 
 int Fixed::getRawBits(void) const {
-    std::cout << "getRawBits member function called" << std::endl;
     return this->_num;
 }
 
@@ -37,11 +35,11 @@ void Fixed::setRawBits(int const raw){
 }
 
 float Fixed::toFloat(void) const {
-    return (float)this->_num / (1 << _fractionalBits);
+    return static_cast<float>(this->_num )/ (1 << _fractionalBits);
 }
 
 int Fixed::toInt(void) const {
-    return (int)this->_num / (1 << _fractionalBits);
+    return this->_num / (1 << _fractionalBits);
 }
 
 Fixed::~Fixed(){
