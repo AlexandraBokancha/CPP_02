@@ -43,25 +43,25 @@ class	Fixed
 
                 /* Arithmetic operators */
 
-                Fixed operator+(const Fixed & rhs);
-                Fixed operator-(const Fixed & rhs);
-                Fixed operator*(const Fixed & rhs);
-                Fixed operator/(const Fixed & rhs);
+                Fixed operator+(const Fixed & rhs) const;
+                Fixed operator-(const Fixed & rhs) const;
+                Fixed operator*(const Fixed & rhs) const;
+                Fixed operator/(const Fixed & rhs) const;
 
                 /* Comparaison operators */
 
-                Fixed operator>(const Fixed & rhs);
-                Fixed operator<(const Fixed & rhs);
-                Fixed operator>=(const Fixed & rhs);
-                Fixed operator<=(const Fixed & rhs);
-                Fixed operator==(const Fixed & rhs);
-                Fixed operator!=(const Fixed & rhs);
+                bool operator>(const Fixed & rhs) const;
+                bool operator<(const Fixed & rhs) const;
+                bool operator>=(const Fixed & rhs) const;
+                bool operator<=(const Fixed & rhs) const;
+                bool operator==(const Fixed & rhs) const;
+                bool operator!=(const Fixed & rhs) const;
 
                 /* Increment/decrement operators */
 
                 Fixed& operator++(void);
-                Fixed operator--(void);
-                Fixed& operator++(int);
+                Fixed& operator--(void);
+                Fixed operator++(int);
                 Fixed operator--(int);
 
 
