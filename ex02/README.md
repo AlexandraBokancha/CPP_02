@@ -14,7 +14,7 @@ ternary operator(?:)
 
  In the case that the increase operator is used as a prefix (++x) of the value, the expression evaluates to the final value of x, once it is already increased. On the other hand, in case that it is used as a suffix (x++), the value is also increased, but the expression evaluates to the value that x had before being increased. 
 
-2. Function Overloading in C++
+2. Function Overloading in C++ (Adhoc polymorphism)
 
 The advantage of Function overloading is that it increases the readability of the program because you don't need to use different names for the same action.
 

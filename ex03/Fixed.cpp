@@ -6,7 +6,7 @@ Fixed::Fixed( void ) : _num(0){
 }
 
 Fixed::Fixed( const int intNum ){
-//    std::cout << "Int constructor called" << std::endl;
+   //  std::cout << "Int constructor called" << std::endl;
     this->_num = intNum << _fractionalBits;
 }
 
@@ -24,6 +24,7 @@ Fixed & Fixed::operator=( Fixed const & newFixed ){
    // std::cout << "Copy assignement operator called" << std::endl;
     if (this != &newFixed)
         this->_num = newFixed.getRawBits();
+    // returning a refernce to the current  (*this)
     return *this;
 }
 
@@ -36,7 +37,7 @@ void Fixed::setRawBits( int const raw ){
 }
 
 float Fixed::toFloat( void ) const {
-    return static_cast<float>(this->getRawBits() )/ (1 << _fractionalBits);
+    return static_cast<float>(this->getRawBits()) / (1 << _fractionalBits);
 }
 
 int Fixed::toInt( void ) const {
@@ -48,6 +49,8 @@ Fixed::~Fixed(){
   return ;
 }
                         /* Arithmetic operators */
+
+/* we return a copy of created instance as a result */
 
 Fixed Fixed::operator+( Fixed const & rhs ) const{
     return Fixed(this->toFloat() + rhs.toFloat());
@@ -95,12 +98,12 @@ bool Fixed::operator!=( Fixed const & rhs ) const{
 
 /* prefix : ++var, --var, increased->return */
 
-Fixed &Fixed::operator++( void ){
+Fixed & Fixed::operator++( void ){
     ++this->_num;
     return *this;
 }
 
-Fixed &Fixed::operator--( void ){
+Fixed & Fixed::operator--( void ){
     --this->_num;
     return *this;
 }
@@ -108,19 +111,18 @@ Fixed &Fixed::operator--( void ){
 /* postfix : var++, var--, displayed->increased */
 
 Fixed Fixed::operator++( int ){
-    Fixed tmp(*this);
+    Fixed tmp( *this );
 
     tmp._num = this->_num++;
     return tmp;
 }
 
 Fixed Fixed::operator--( int ){
-    Fixed tmp(*this);
+    Fixed tmp( *this );
 
     tmp._num = this->_num--;
     return tmp;
 }
-
                             /* Overloaded member functions */
 
 Fixed & Fixed::min( Fixed & new1, Fixed & new2 ){

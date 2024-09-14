@@ -15,19 +15,19 @@ class	Fixed
                 Fixed( void );
 
                 /* copy constructor */
-                Fixed(const Fixed& f);
+                Fixed( Fixed const & f );
 
                 /* copy assignement operator overload */
-                Fixed &operator=(const Fixed& f);
+                Fixed & operator=( Fixed const & f );
                 
                 /* destructor */
                 ~Fixed( void );
                 
                 /*  constructor that takes a const int */
-                Fixed(const int intNum);
+                Fixed( const int intNum );
 
                 /* constructor that takes a const float */
-                Fixed (const float floatNum);
+                Fixed ( const float floatNum );
 
                 /* returns the raw value of the fixed-point value */
                 int getRawBits( void ) const;
@@ -42,41 +42,43 @@ class	Fixed
                 int toInt( void ) const;
 
                 /* Arithmetic operators */
+                
+                /* --> current instance doesn't change, so we use const function */
 
-                Fixed operator+(Fixed const & rhs) const;
-                Fixed operator-(Fixed const & rhs) const;
-                Fixed operator*(Fixed const & rhs) const;
-                Fixed operator/(Fixed const & rhs) const;
+                Fixed operator+( Fixed const & rhs ) const; 
+                Fixed operator-( Fixed const & rhs ) const;
+                Fixed operator*( Fixed const & rhs ) const;
+                Fixed operator/( Fixed const & rhs ) const;
 
                 /* Comparaison operators */
 
-                bool operator>(Fixed const & rhs) const;
-                bool operator<(Fixed const & rhs) const;
-                bool operator>=(Fixed const & rhs) const;
-                bool operator<=(Fixed const & rhs) const;
-                bool operator==(Fixed const & rhs) const;
-                bool operator!=(Fixed const & rhs) const;
+                bool operator>( Fixed const & rhs ) const;
+                bool operator<( Fixed const & rhs ) const;
+                bool operator>=( Fixed const & rhs ) const;
+                bool operator<=( Fixed const & rhs ) const;
+                bool operator==( Fixed const & rhs ) const;
+                bool operator!=( Fixed const & rhs ) const;
 
                 /* Increment/decrement operators */
 
-                Fixed& operator++(void);
-                Fixed& operator--(void);
-                Fixed operator++(int);
-                Fixed operator--(int);
+                Fixed & operator++( void );
+                Fixed & operator--( void );
+                Fixed operator++( int );
+                Fixed operator--( int );
 
 
                 /* Overoaded memeber functions */
 
-                static Fixed & min(Fixed & new1, Fixed & new2);
-                static const Fixed & min(Fixed const & new1, Fixed const & new2);
-                static Fixed & max(Fixed & new1, Fixed & new2);
-                static const Fixed & max(Fixed const & new1, Fixed const & new2);
+                static Fixed & min( Fixed & new1, Fixed & new2 );
+                static const Fixed & min( Fixed const & new1, Fixed const & new2 );
+                static Fixed & max( Fixed & new1, Fixed & new2 );
+                static const Fixed & max( Fixed const & new1, Fixed const & new2 );
 
 };
 
 /* An overload of the insertion («) operator that inserts a floating-point representation
 of the fixed-point number into the output stream object passed as parameter. */
 
-std::ostream & operator<<(std::ostream& o, Fixed const & newFixed);
+std::ostream & operator<<( std::ostream & o, Fixed const & newFixed );
 
 #endif
